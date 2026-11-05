@@ -1,0 +1,545 @@
+/* ==========================================
+   1. GENERAL SETTINGS
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    background: linear-gradient(
+        135deg,
+        #050B1E,
+        #0A1740,
+        #102B5C,
+        #06132F
+    );
+
+    position: relative;
+}
+
+
+/* ==========================================
+   2. BACKGROUND LIGHT EFFECTS
+========================================== */
+
+.background-effects {
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+.background-effects::before,
+.background-effects::after {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    opacity: 0.5;
+
+    animation: lightMove 12s ease-in-out infinite alternate;
+}
+
+.background-effects::before {
+    background: #0066FF;
+
+    top: -100px;
+    left: -100px;
+}
+
+.background-effects::after {
+    background: #00C8FF;
+
+    bottom: -120px;
+    right: -100px;
+
+    animation-delay: 3s;
+}
+
+
+@keyframes lightMove {
+
+    0% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(100px, 80px);
+    }
+
+    100% {
+        transform: translate(-50px, 120px);
+    }
+
+}
+
+
+/* ==========================================
+   3. MAIN CONTAINER
+========================================== */
+
+.main-container {
+
+    width: 90%;
+    max-width: 900px;
+
+    padding: 65px 50px;
+
+    text-align: center;
+
+    background: rgba(15, 35, 75, 0.55);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(75, 160, 255, 0.3);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 0 30px rgba(0, 102, 255, 0.15),
+        0 20px 60px rgba(0, 0, 0, 0.4);
+
+    position: relative;
+
+    z-index: 1;
+
+    animation: containerAppear 1s ease;
+
+}
+
+
+@keyframes containerAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ==========================================
+   4. SYSTEM LABEL
+========================================== */
+
+.system-label {
+
+    display: inline-block;
+
+    color: #58C8FF;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+    padding: 10px 20px;
+
+    border: 1px solid rgba(0, 180, 255, 0.35);
+
+    border-radius: 30px;
+
+    background: rgba(0, 150, 255, 0.08);
+
+    margin-bottom: 30px;
+
+}
+
+
+/* ==========================================
+   5. MAIN HEADING
+========================================== */
+
+h1 {
+
+    color: #FFFFFF;
+
+    font-size: 42px;
+
+    line-height: 1.4;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 25px;
+
+    text-shadow:
+        0 0 10px rgba(0, 150, 255, 0.3);
+
+}
+
+h1 span {
+
+    display: block;
+
+    color: #38BDF8;
+
+    text-shadow:
+        0 0 10px rgba(0, 180, 255, 0.7),
+        0 0 25px rgba(0, 180, 255, 0.4);
+
+}
+
+
+/* ==========================================
+   6. DESCRIPTION
+========================================== */
+
+.description {
+
+    color: #B8CCE9;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+
+    max-width: 650px;
+
+    margin: 0 auto 30px;
+
+}
+
+
+/* ==========================================
+   7. SYSTEM STATUS
+========================================== */
+
+.system-status {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: #75E6FF;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    padding: 13px 25px;
+
+    border-radius: 30px;
+
+    background: rgba(0, 200, 255, 0.08);
+
+    border: 1px solid rgba(0, 200, 255, 0.25);
+
+    margin-bottom: 35px;
+
+}
+
+
+.status-indicator {
+
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #00FFB3;
+
+    box-shadow: 0 0 12px #00FFB3;
+
+    animation: statusPulse 1.5s infinite;
+
+}
+
+
+@keyframes statusPulse {
+
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+
+}
+
+
+/* ==========================================
+   8. RESULTS BUTTON
+========================================== */
+
+.results-button {
+
+    display: block;
+
+    margin: auto;
+
+    padding: 18px 35px;
+
+    min-width: 280px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    color: #FFFFFF;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    background: linear-gradient(
+        135deg,
+        #0878F9,
+        #00C6FF
+    );
+
+    box-shadow:
+        0 0 15px rgba(0, 150, 255, 0.4),
+        0 0 35px rgba(0, 150, 255, 0.2);
+
+    transition: all 0.3s ease;
+
+}
+
+
+.results-button span {
+
+    margin-left: 15px;
+
+    font-size: 20px;
+
+}
+
+
+.results-button:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 0 25px rgba(0, 180, 255, 0.7),
+        0 0 50px rgba(0, 150, 255, 0.4);
+
+}
+
+
+/* ==========================================
+   9. CONSOLE INSTRUCTIONS
+========================================== */
+
+.instructions {
+
+    color: #75DFFF;
+
+    font-size: 14px;
+
+    line-height: 1.9;
+
+    margin-top: 25px;
+
+    padding: 15px;
+
+    background: rgba(0, 150, 255, 0.08);
+
+    border: 1px solid rgba(0, 180, 255, 0.25);
+
+    border-radius: 12px;
+
+}
+
+
+/* ==========================================
+   10. FOOTER
+========================================== */
+
+.footer {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #6E8FB9;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    border-top: 1px solid rgba(100, 160, 255, 0.15);
+
+    padding-top: 25px;
+
+    margin-top: 50px;
+
+}
+
+
+/* ==========================================
+   11. RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 600px) {
+
+    .main-container {
+
+        padding: 40px 20px;
+
+    }
+
+    h1 {
+
+        font-size: 28px;
+
+    }
+
+    .description {
+
+        font-size: 14px;
+
+    }
+
+    .system-label {
+
+        font-size: 9px;
+
+        letter-spacing: 2px;
+
+    }
+
+    .results-button {
+
+        min-width: 100%;
+
+        font-size: 12px;
+
+    }
+
+    .footer {
+
+        font-size: 9px;
+
+    }
+
+}
+.main-container {
+    padding: 55px 35px;
+    max-width: 750px;
+}
+
+h1 {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.description {
+    margin-bottom: 25px;
+}
+
+.footer {
+    display: none;
+}
+/* ==========================================
+   STAR BACKGROUND
+========================================== */
+
+.stars-background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.star {
+    position: absolute;
+    bottom: -20px;
+
+    width: 3px;
+    height: 3px;
+
+    background: #FFFFFF;
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 6px #38BDF8,
+        0 0 12px #38BDF8,
+        0 0 20px #0878F9;
+
+    animation: starMove linear infinite;
+}
+
+@keyframes starMove {
+
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(-55vh) translateX(50px);
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-115vh) translateX(-40px);
+        opacity: 0;
+    }
+}
+
+
+/* ==========================================
+   TRANSPARENT GLASS CONTAINER
+========================================== */
+
+.main-container {
+    background: rgba(8, 25, 55, 0.12) !important;
+
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+
+    border: 1px solid rgba(100, 190, 255, 0.25);
+
+    box-shadow:
+        0 0 30px rgba(0, 120, 255, 0.08);
+
+    position: relative;
+    z-index: 1;
+}
